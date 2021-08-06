@@ -70,9 +70,9 @@ public class ParkingLotTest {
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
         ParkingTicket parkingTicket = parkingLot.park(car);
+        Car firstCar = parkingLot.fetch(parkingTicket);
 
         //when
-        Car firstCar = parkingLot.fetch(parkingTicket);
         Car secondCar = parkingLot.fetch(parkingTicket);
 
         //then
