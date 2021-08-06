@@ -4,10 +4,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ParkingLot {
+    private int currentCapacity;
     private Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
+
+    public ParkingLot(){}
+
+    public ParkingLot(int capacity) {
+        this.currentCapacity = capacity;
+    }
 
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
+        int fullCapacity = 10;
+        if(currentCapacity == fullCapacity) return null;
         this.parkedPosition.put(parkingTicket, car);
         return parkingTicket;
     }
