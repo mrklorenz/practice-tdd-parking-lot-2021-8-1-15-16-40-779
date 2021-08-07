@@ -1,8 +1,8 @@
-#Story 1
+## Story 1
 
-[1] Given Car
-    When Park
-    Then return Parking Ticket
+[1] Given ***Car*** & ***Parking Lot***
+    When ***Park***
+    Then return ***Parking Ticket***
 
 [2] Given Parking Ticket
     When Fetch
@@ -16,20 +16,22 @@
     When Fetch
     Then Return Nothing.
 
-[5] Given Full Parking Lot
+[5] Given Full Parking Lot and Car
     When Park
     Then Return Nothing.
 
-[6] Given Existing Car
+[6] Given Existing Car and Parking Lot
     When Park
     Then Return Nothing.
 
-[7] Given Null Car
-    When Park
-    Then Throw NullPointerException
+## Story 2
 
-[8] Given Null Parking Ticket
+[1] Given Used/Wrong Parking Ticket
     When Fetch
-    Then Throw NullPointer
+    Then Throw UnrecognizedParkingTicketException
+
+[2] Given Car and Full Parking Lot
+    When Fetch
+    Then Throw NoAvailablePositionException
 
     
