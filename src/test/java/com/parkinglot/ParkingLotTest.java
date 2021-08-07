@@ -312,6 +312,28 @@ public class ParkingLotTest {
         assertEquals(exception.getMessage(), "No Available Position!");
     }
 
+    @Test
+    void should_return_parking_lot_with_more_positions_when_park_given_2_parking_lot_car_and_smart_parking_boy(){
+        //given
+        ParkingLot firstParkingLot = new ParkingLot(2);
+        ParkingLot secondParkingLot = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+
+        parkingLots.add(firstParkingLot);
+        parkingLots.add(secondParkingLot);
+
+        SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLots);
+        Car car = new Car();
+
+        //when
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+
+        //then
+        assertEquals(secondParkingLot.fetch(parkingTicket), car);
+        assertNull(firstParkingLot.fetch(parkingTicket));
+    }
+
+
 
 
 
