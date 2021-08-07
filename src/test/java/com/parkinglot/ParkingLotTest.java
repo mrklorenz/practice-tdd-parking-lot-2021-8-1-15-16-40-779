@@ -209,5 +209,28 @@ public class ParkingLotTest {
         assertEquals(parkingLots.get(0).fetch(parkingTicket), car);
     }
 
+    @Test
+    void should_return_first_parking_lot_when_park_given_1s_parking_lot_full_and_2nd_parking_lot_not_full_car_and_parking_boy(){
+        //given
+        ParkingLot firstParkingLot = new ParkingLot(10);
+        ParkingLot secondParkingLot = new ParkingLot(1);
+        List<ParkingLot> parkingLots = new ArrayList<>();
+
+        parkingLots.add(firstParkingLot);
+        parkingLots.add(secondParkingLot);
+
+        Car car = new Car();
+        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
+
+        //when
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+
+        //then
+        assertNotNull(parkingTicket);
+        assertEquals(parkingLots.get(1).fetch(parkingTicket), car);
+    }
+
+    
+
 
 }
