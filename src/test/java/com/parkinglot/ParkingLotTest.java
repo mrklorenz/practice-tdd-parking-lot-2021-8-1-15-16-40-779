@@ -161,7 +161,19 @@ public class ParkingLotTest {
         assertEquals(exception.getMessage(), "Unrecognized Parking Ticket!");
     }
 
-    
+    @Test
+    void should_throw_exception_when_park_given_full_parking_lot_and_car_and_standard_parking_boy(){
+        //given
+        ParkingLot parkingLot = new ParkingLot(10);
+        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+        Car car = new Car();
+
+        //then
+        ParkingException exception = assertThrows(ParkingException.class, () -> parkingBoy.park(car));
+        assertEquals(exception.getMessage(), "No Available Position!");
+    }
+
+
 
 
 
