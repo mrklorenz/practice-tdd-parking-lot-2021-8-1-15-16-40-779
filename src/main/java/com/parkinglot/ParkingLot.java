@@ -21,8 +21,11 @@ public class ParkingLot {
         return parkingTicket;
     }
 
-    public Car fetch(ParkingTicket parkingTicket) {
+    public Car fetch(ParkingTicket parkingTicket){
         Car car = this.parkedPosition.get(parkingTicket);
+        if(car == null){
+            throw new ParkingException("Unrecognized Parking Ticket!");
+        }
         parkedPosition.remove(parkingTicket);
         return car;
     }
