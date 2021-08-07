@@ -61,4 +61,31 @@
     Then Return Nothing
 
 
+## Story 4
+
+[1] Given Standard Parking Boy, 2 Parking Lots with Available Positions and Car
+    When Park
+    Then Return First Parking Lot with Car
+
+[2] Given Standard Parking Boy, 1 Parking Lot Full, 1 Parking Lot not Full, Car
+    When Park
+    Then Return 2nd Parking Lot 
+
+[3] Given Standard Parking Boy, 2 Parking Lots, 2 Cars, 2 Parking Ticket
+    When fetch car twice
+    Then Return right car for each ticket
+
+[4] Given Standard Parking Boy, 2 Parking Lots, Unrecognized ticket
+    When fetch car
+    Then throw exception
+
+[5] Given Standard Parking Boy, 2 Parking Lots, Used Ticket
+    When fetch car
+    Then throw exception
+
+[6] Given Standard Parking Boy, 2 Full Parking Lots, Car
+    When Park
+    Then throw exception
+
+
     
