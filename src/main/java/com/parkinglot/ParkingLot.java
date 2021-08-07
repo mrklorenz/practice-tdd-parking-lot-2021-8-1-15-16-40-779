@@ -16,7 +16,7 @@ public class ParkingLot {
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
         int fullCapacity = 10;
-        if(currentCapacity == fullCapacity) return null;
+        if(currentCapacity == fullCapacity) throw new ParkingException("No Available Position!");
         this.parkedPosition.put(parkingTicket, car);
         return parkingTicket;
     }
