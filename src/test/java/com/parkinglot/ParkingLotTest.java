@@ -61,7 +61,7 @@ public class ParkingLotTest {
         Car car = parkingLot.fetch(parkingTicket);
 
         //then
-        assertNull(car);
+        assertThrows(UnrecognizedParkingTicketException.class, car);
     }
 
     @Test
