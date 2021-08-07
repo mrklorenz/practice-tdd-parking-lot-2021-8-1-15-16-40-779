@@ -1,7 +1,7 @@
 package com.parkinglot;
 
 public class StandardParkingBoy {
-    private ParkingLot parkingLot;
+    private final ParkingLot parkingLot;
 
     public StandardParkingBoy (ParkingLot parkingLot){
         this.parkingLot = parkingLot;
