@@ -88,4 +88,11 @@
     Then throw exception
 
 
+## Story 5
+
+[1] Given 2 Parking Lots, Car, Smart Parking Boy
+    When Park
+    Then Park in Parking Lot with More empty Position
+
+
     
