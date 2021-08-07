@@ -85,4 +85,19 @@ public class ParkingLotTest {
         ParkingException exception = assertThrows(ParkingException.class, () -> parkingLot.park(car));
         assertEquals(exception.getMessage(), "No Available Position!");
     }
+
+
+    @Test
+    void should_return_parkingTicket_when_park_given_parking_boy_parking_lot_and_car(){
+        //given
+        ParkingLot parkingLot = new ParkingLot();
+        Car car = new Car();
+        StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLot);
+
+        //when
+        ParkingTicket parkingTicket = parkingBoy.park(car);
+
+        //
+        assertNotNull(parkingTicket);
+    }
 }
