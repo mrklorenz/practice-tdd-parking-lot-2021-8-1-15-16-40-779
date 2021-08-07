@@ -29,4 +29,8 @@ public class ParkingLot {
         parkedPosition.remove(parkingTicket);
         return car;
     }
+
+    public int getCurrentCapacity() {
+        return currentCapacity;
+    }
 }

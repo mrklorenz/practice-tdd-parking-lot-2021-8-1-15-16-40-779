@@ -1,17 +1,28 @@
 package com.parkinglot;
 
-public class StandardParkingBoy {
-    private final ParkingLot parkingLot;
+import java.util.List;
 
-    public StandardParkingBoy (ParkingLot parkingLot){
-        this.parkingLot = parkingLot;
+public class StandardParkingBoy {
+    private List<ParkingLot> parkingLots;
+
+    public StandardParkingBoy(List<ParkingLot> parkingLots) {
+        this.parkingLots = parkingLots;
     }
 
     public ParkingTicket park(Car car){
-        return parkingLot.park(car);
+        ParkingLot currentParkingLot = parkingLots
+                .stream()
+                .filter(parkingLot -> parkingLot.getCurrentCapacity() != 10)
+                .findFirst()
+                .orElseThrow(() -> new ParkingException("No Available Position!"));
+
+        return currentParkingLot.park(car);
     }
 
     public Car fetch(ParkingTicket parkingTicket) {
-        return parkingLot.fetch(parkingTicket);
+        return parkingLots
+                .stream()
+                .findFirst()
+                .get().fetch(parkingTicket);
     }
 }
