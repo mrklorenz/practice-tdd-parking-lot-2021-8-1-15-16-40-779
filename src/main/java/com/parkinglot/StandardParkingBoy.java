@@ -3,7 +3,7 @@ package com.parkinglot;
 import java.util.List;
 
 public class StandardParkingBoy {
-    private List<ParkingLot> parkingLots;
+    public List<ParkingLot> parkingLots;
 
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
         this.parkingLots = parkingLots;
