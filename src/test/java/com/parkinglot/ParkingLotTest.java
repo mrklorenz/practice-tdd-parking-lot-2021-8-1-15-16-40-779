@@ -313,25 +313,26 @@ public class ParkingLotTest {
     }
 
     @Test
-    void should_return_parking_lot_with_more_positions_when_park_given_2_parking_lot_car_and_smart_parking_boy(){
+    void should_return_parkingTicket_when_park_given_2_parking_lot_and_car_smart_parkingboy(){
         //given
-        ParkingLot firstParkingLot = new ParkingLot(2);
+        ParkingLot firstParkingLot = new ParkingLot(1);
         ParkingLot secondParkingLot = new ParkingLot(1);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);
         parkingLots.add(secondParkingLot);
 
-        SmartParkingBoy parkingBoy = new SmartParkingBoy(parkingLots);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
         Car car = new Car();
 
         //when
-        ParkingTicket parkingTicket = parkingBoy.park(car);
+        ParkingTicket parkingTicket = smartParkingBoy.park(car);
 
         //then
-        assertEquals(secondParkingLot.fetch(parkingTicket), car);
-        assertNull(firstParkingLot.fetch(parkingTicket));
+        assertEquals(car, smartParkingBoy.fetch(parkingTicket));
     }
+
+
 
 
 

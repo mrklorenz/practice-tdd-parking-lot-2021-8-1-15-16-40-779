@@ -13,4 +13,8 @@ public class SmartParkingBoy {
     public ParkingTicket park(Car car) {
         return null;
     }
+
+    public Car fetch(ParkingTicket parkingTicket) {
+        return null;
+    }
 }
