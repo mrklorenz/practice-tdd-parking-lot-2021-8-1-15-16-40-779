@@ -11,7 +11,7 @@ class StandardParkingBoyTest {
     @Test
     void should_return_parkingTicket_when_park_given_standard_parking_boy_parking_lot_and_car() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1 ,10);
         Car car = new Car();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
@@ -27,7 +27,7 @@ class StandardParkingBoyTest {
     @Test
     void should_return_car_when_fetch_given_standard_parking_boy_parking_lot_and_parking_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car car = new Car();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
@@ -44,7 +44,7 @@ class StandardParkingBoyTest {
     @Test
     void should_return_right_car_when_fetch_twice_given_two_parked_car_and_two_parking_tickets_and_parking_lot_and_standard_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car firstCar = new Car();
         Car secondCar = new Car();
         List<ParkingLot> parkingLots = new ArrayList<>();
@@ -65,7 +65,7 @@ class StandardParkingBoyTest {
     @Test
     void should_throw_exception_when_fetch_given_parking_lot_and_wrong_parking_ticket_and_standard_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         ParkingTicket parkingTicket = new ParkingTicket();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
@@ -79,7 +79,7 @@ class StandardParkingBoyTest {
     @Test
     void should_throw_exception_when_fetch_given_parking_lot_and_used_ticket_and_standard_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car car = new Car();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
@@ -95,7 +95,7 @@ class StandardParkingBoyTest {
     @Test
     void should_throw_exception_when_park_given_full_parking_lot_and_car_and_standard_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(10);
+        ParkingLot parkingLot = new ParkingLot(10 , 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         StandardParkingBoy parkingBoy = new StandardParkingBoy(parkingLots);
@@ -109,8 +109,8 @@ class StandardParkingBoyTest {
     @Test
     void should_return_first_parking_lot_when_park_given_2_parking_lots_car_and_parking_boy() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(1);
-        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingLot firstParkingLot = new ParkingLot(1, 10);
+        ParkingLot secondParkingLot = new ParkingLot(1, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);
@@ -130,8 +130,8 @@ class StandardParkingBoyTest {
     @Test
     void should_return_first_parking_lot_when_park_given_1s_parking_lot_full_and_2nd_parking_lot_not_full_car_and_parking_boy() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(10);
-        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingLot firstParkingLot = new ParkingLot(10, 10);
+        ParkingLot secondParkingLot = new ParkingLot(1, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);
@@ -151,8 +151,8 @@ class StandardParkingBoyTest {
     @Test
     void should_return_right_car_for_each_ticket_when_fetch_given_2_parking_lot_2_car_and_2_parking_ticket_parking_boy() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(1);
-        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingLot firstParkingLot = new ParkingLot(1, 10);
+        ParkingLot secondParkingLot = new ParkingLot(1, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);
@@ -177,8 +177,8 @@ class StandardParkingBoyTest {
     @Test
     void should_throw_exception_when_fetch_given_2_parking_lot_2_car_and_unrecognized_parking_ticket_parking_boy() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(1);
-        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingLot firstParkingLot = new ParkingLot(1, 10);
+        ParkingLot secondParkingLot = new ParkingLot(1, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);
@@ -195,8 +195,8 @@ class StandardParkingBoyTest {
     @Test
     void should_throw_exception_when_fetch_given_2_parking_lot_2_car_and_used_parking_ticket_parking_boy() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(1);
-        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingLot firstParkingLot = new ParkingLot(1, 10);
+        ParkingLot secondParkingLot = new ParkingLot(1, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);
@@ -215,8 +215,8 @@ class StandardParkingBoyTest {
     @Test
     void should_throw_exception_when_park_given_2_parking_lot_car_and_parking_boy() {
         //given
-        ParkingLot firstParkingLot = new ParkingLot(10);
-        ParkingLot secondParkingLot = new ParkingLot(10);
+        ParkingLot firstParkingLot = new ParkingLot(10, 10);
+        ParkingLot secondParkingLot = new ParkingLot(10, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);

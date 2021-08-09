@@ -12,8 +12,8 @@ class SmartParkingBoyTest {
     @Test
     void should_return_parkingTicket_when_park_given_2_parking_lot_and_car_smart_parkingboy(){
         //given
-        ParkingLot firstParkingLot = new ParkingLot(1);
-        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingLot firstParkingLot = new ParkingLot(1, 10);
+        ParkingLot secondParkingLot = new ParkingLot(1, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
 
         parkingLots.add(firstParkingLot);
@@ -32,8 +32,8 @@ class SmartParkingBoyTest {
     @Test
     void should_return_car_when_fetch_given_smart_parking_boy_parking_lot_and_parking_ticket() {
         //given
-        ParkingLot firstParkingLot  = new ParkingLot(1);
-        ParkingLot secondParkingLot = new ParkingLot(1);
+        ParkingLot firstParkingLot  = new ParkingLot(1, 10);
+        ParkingLot secondParkingLot = new ParkingLot(1, 10);
         Car car = new Car();
         List<ParkingLot> parkingLots = new ArrayList<>();
 
@@ -53,7 +53,7 @@ class SmartParkingBoyTest {
     @Test
     void should_return_right_car_when_fetch_twice_given_two_parked_car_and_two_parking_tickets_and_parking_lot_and_smart_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car firstCar = new Car();
         Car secondCar = new Car();
         List<ParkingLot> parkingLots = new ArrayList<>();
@@ -74,7 +74,7 @@ class SmartParkingBoyTest {
     @Test
     void should_throw_exception_when_fetch_given_parking_lot_and_wrong_parking_ticket_and_standard_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         ParkingTicket parkingTicket = new ParkingTicket();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
@@ -88,7 +88,7 @@ class SmartParkingBoyTest {
     @Test
     void should_throw_exception_when_fetch_given_parking_lot_and_used_ticket_and_standard_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(1);
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car car = new Car();
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
@@ -104,7 +104,7 @@ class SmartParkingBoyTest {
     @Test
     void should_throw_exception_when_park_given_full_parking_lot_and_car_and_standard_parking_boy() {
         //given
-        ParkingLot parkingLot = new ParkingLot(10);
+        ParkingLot parkingLot = new ParkingLot(10, 10);
         List<ParkingLot> parkingLots = new ArrayList<>();
         parkingLots.add(parkingLot);
         SmartParkingBoy smartParkingBoy = new SmartParkingBoy(parkingLots);
@@ -118,8 +118,8 @@ class SmartParkingBoyTest {
     @Test
     void should_return_park_in_parking_lot_with_more_empty_postion_when_park_given_2_parking_lots_car_smart_parking_boy(){
         //given
-        ParkingLot firstParkingLot = new ParkingLot(1);
-        ParkingLot secondParkingLot = new ParkingLot(2);
+        ParkingLot firstParkingLot = new ParkingLot(1, 10);
+        ParkingLot secondParkingLot = new ParkingLot(2, 10);
 
         Car firstCar = new Car();
 

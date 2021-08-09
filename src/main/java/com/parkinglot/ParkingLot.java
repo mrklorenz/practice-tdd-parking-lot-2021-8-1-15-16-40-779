@@ -5,18 +5,17 @@ import java.util.Map;
 
 public class ParkingLot {
     private int currentCapacity;
+    private int totalCapacity;
     private final Map<ParkingTicket, Car> parkedPosition = new HashMap<>();
 
-    public ParkingLot(){}
-
-    public ParkingLot(int capacity) {
+    public ParkingLot(int capacity, int totalCapacity) {
         this.currentCapacity = capacity;
+        this.totalCapacity = totalCapacity;
     }
 
     public ParkingTicket park(Car car) {
         ParkingTicket parkingTicket = new ParkingTicket();
-        int fullCapacity = 10;
-        if(currentCapacity == fullCapacity) throw new ParkingException("No Available Position!");
+        if(currentCapacity == getTotalCapacity()) throw new ParkingException("No Available Position!");
         this.parkedPosition.put(parkingTicket, car);
         return parkingTicket;
     }
@@ -32,5 +31,9 @@ public class ParkingLot {
 
     public int getCurrentCapacity() {
         return currentCapacity;
+    }
+
+    public int getTotalCapacity() {
+        return this.totalCapacity;
     }
 }

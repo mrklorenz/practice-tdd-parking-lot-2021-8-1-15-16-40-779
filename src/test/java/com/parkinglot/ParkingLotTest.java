@@ -9,7 +9,7 @@ public class ParkingLotTest {
     @Test
     void should_return_parkingTicket_when_park_given_parking_lot_and_car() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car car = new Car();
 
         //when
@@ -22,7 +22,7 @@ public class ParkingLotTest {
     @Test
     void should_return_car_when_fetch_given_parked_car_and_parking_lot() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car car = new Car();
         ParkingTicket parkingTicket = parkingLot.park(car);
 
@@ -36,7 +36,7 @@ public class ParkingLotTest {
     @Test
     void should_return_right_car_when_fetch_twice_given_two_parked_car_and_two_parking_tickets_and_parking_lot() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(5, 10);
         Car firstCar = new Car();
         Car secondCar = new Car();
         ParkingTicket firstCarTicket = parkingLot.park(firstCar);
@@ -54,7 +54,7 @@ public class ParkingLotTest {
     @Test
     void should_throw_exception_when_fetch_given_parking_lot_and_wrong_parking_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         ParkingTicket parkingTicket = new ParkingTicket();
 
         //then
@@ -65,7 +65,7 @@ public class ParkingLotTest {
     @Test
     void should_throw_exception_when_fetch_given_parking_lot_and_used_ticket() {
         //given
-        ParkingLot parkingLot = new ParkingLot();
+        ParkingLot parkingLot = new ParkingLot(1, 10);
         Car car = new Car();
         ParkingTicket parkingTicket = parkingLot.park(car);
         parkingLot.fetch(parkingTicket);
@@ -78,7 +78,7 @@ public class ParkingLotTest {
     @Test
     void should_return_null_when_park_given_full_parking_lot_and_car() {
         //given
-        ParkingLot parkingLot = new ParkingLot(10);
+        ParkingLot parkingLot = new ParkingLot(10, 10);
         Car car = new Car();
 
         //then
