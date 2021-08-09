@@ -92,6 +92,30 @@
 
 [1] Given 2 Parking Lots, Car, Smart Parking Boy
     When Park
+    Then Return Parking Ticket
+
+[2] Given 2 Parking Lots, Parking Ticket, Smart Parking Boy
+    When Park
+    Then Return 2nd Parking Lot
+
+[3] Given Parking Lot , 2 Parking Tickets , 2 Cars
+    When Fetch Car Twice
+    Then Return Correct Car
+
+[4] Given Parking Lot, Used Parking Ticket
+    When Fetch
+    Then Return Nothing
+
+[5] Given Parking Lot, Wrong Parking Ticket/Not Existing
+    When Fetch
+    Then Return Nothing
+
+[6] Given Full Parking Lot, Car
+    When Park
+    Then Return Nothing
+
+[7] Given 2 Parking Lots, Car, Smart Parking Boy
+    When Park
     Then Park in Parking Lot with More empty Position
 
 
