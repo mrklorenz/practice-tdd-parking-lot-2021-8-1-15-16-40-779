@@ -119,4 +119,10 @@
     Then Park in Parking Lot with More empty Position
 
 
+## Story 6
+
+[1] Given 2 Parking Lots, Car, Super Smart Parking Boy
+    When Park
+    Then Return Parking Ticket
+
     
