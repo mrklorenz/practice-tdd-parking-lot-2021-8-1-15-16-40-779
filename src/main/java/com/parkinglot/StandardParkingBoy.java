@@ -1,28 +1,19 @@
 package com.parkinglot;
 
 import java.util.List;
+import java.util.Optional;
 
-public class StandardParkingBoy {
-    public List<ParkingLot> parkingLots;
+public class StandardParkingBoy extends ParkingBoy{
 
     public StandardParkingBoy(List<ParkingLot> parkingLots) {
-        this.parkingLots = parkingLots;
+        super(parkingLots);
     }
 
-    public ParkingTicket park(Car car){
-        ParkingLot currentParkingLot = parkingLots
-                .stream()
-                .filter(parkingLot -> parkingLot.getCurrentCapacity() != 10)
-                .findFirst()
-                .orElseThrow(() -> new ParkingException("No Available Position!"));
-
-        return currentParkingLot.park(car);
-    }
-
-    public Car fetch(ParkingTicket parkingTicket) {
+    @Override
+    protected Optional<ParkingLot> findSuitableParkingLot() {
         return parkingLots
                 .stream()
-                .findFirst()
-                .get().fetch(parkingTicket);
+                .filter(parkingLot -> parkingLot.getCurrentCapacity() != 10)
+                .findFirst();
     }
 }
